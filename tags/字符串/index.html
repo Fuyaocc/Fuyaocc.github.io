@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Hexo</title>
+  <title>Tag: 字符串 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="http://example.com/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="John Doe">
@@ -146,118 +146,34 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-从尾到头打印链表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/05/01/%E4%BB%8E%E5%B0%BE%E5%88%B0%E5%A4%B4%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8/">从尾到头打印链表</a>
-    </h1>
-  
-
-        
-        <a href="/2021/05/01/%E4%BB%8E%E5%B0%BE%E5%88%B0%E5%A4%B4%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8/" class="archive-article-date">
-  	<time datetime="2021-05-01T09:18:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-01</time>
-</a>
-        
-      </header>
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="剑指-Offer-06-从尾到头打印链表"><a href="#剑指-Offer-06-从尾到头打印链表" class="headerlink" title="剑指 Offer 06. 从尾到头打印链表"></a>剑指 Offer 06. 从尾到头打印链表</h1><p><img src="/assets/jzoffer_img/jzo_06.png" alt="jzo_06题目"></p>
-<h4 id="我的题解："><a href="#我的题解：" class="headerlink" title="我的题解："></a>我的题解：</h4><p>时间复杂度O(n),空间复杂度O(n);<br>使用reverse函数。。。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">reversePrint</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="keyword">int</span>&gt; s;</span><br><span class="line">        ListNode *p=head;</span><br><span class="line">        <span class="keyword">while</span>(p!=<span class="literal">NULL</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">push_back</span>(p-&gt;val);</span><br><span class="line">            p=p-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">reverse</span>(s.<span class="built_in">begin</span>(),s.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
+    
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">剑指 Offer</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">链表</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/05/01/%E4%BB%8E%E5%B0%BE%E5%88%B0%E5%A4%B4%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2021" class="archive-year">2021</a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-替换空格" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+        <div class="archives">
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/04/27/%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC/">替换空格</a>
-    </h1>
-  
-
-        
-        <a href="/2021/04/27/%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC/" class="archive-article-date">
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2021/04/27/%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC/" class="archive-article-date">
   	<time datetime="2021-04-27T12:46:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-27</time>
 </a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="剑指-Offer-05-替换空格"><a href="#剑指-Offer-05-替换空格" class="headerlink" title="剑指 Offer 05. 替换空格"></a>剑指 Offer 05. 替换空格</h1><p><img src="/assets/jzoffer_img/jzo_05.png" alt="jzo_05题目"></p>
-<h4 id="我的题解："><a href="#我的题解：" class="headerlink" title="我的题解："></a>我的题解：</h4><p>时间复杂度O(n),空间复杂度O(n);<br>遍历字符串A以空格为一段截取出来加入字符串B。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">replaceSpace</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i=<span class="number">0</span>,len=<span class="number">0</span>,pre=<span class="number">0</span>;</span><br><span class="line">        string st;</span><br><span class="line">        <span class="keyword">while</span>(s[i]!=<span class="string">&#x27;\0&#x27;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i]==<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                len=i-pre;</span><br><span class="line">                <span class="keyword">if</span>(len!=<span class="number">0</span>)</span><br><span class="line">                    st+=s.<span class="built_in">substr</span>(pre,len);</span><br><span class="line">                pre=i+<span class="number">1</span>;</span><br><span class="line">                st+=<span class="string">&quot;%20&quot;</span>;</span><br><span class="line">            &#125; </span><br><span class="line">            i++;   </span><br><span class="line">        &#125;</span><br><span class="line">        st+=s.<span class="built_in">substr</span>(pre,i-pre);</span><br><span class="line">        <span class="keyword">return</span> st;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2021/04/27/%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC/">替换空格</a>
+    </h1>
+  
 
-<h4 id="最优解："><a href="#最优解：" class="headerlink" title="最优解："></a>最优解：</h4><p>时间复杂度O(n),空间复杂度O(1);<br>先找出字符串A中的所有空格数n，将字符串A的空间再申请2n的长度。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">replaceSpace</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len=<span class="number">0</span>,i=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(s[i]!=<span class="string">&#x27;\0&#x27;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i]==<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">                len++;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        s.<span class="built_in">resize</span>(i+len*<span class="number">2</span>+<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">int</span> j=i+len*<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">while</span>(j&gt;i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i]==<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                s[j--]=<span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">                s[j--]=<span class="string">&#x27;2&#x27;</span>;</span><br><span class="line">                s[j--]=<span class="string">&#x27;%&#x27;</span>;</span><br><span class="line">                i--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                s[j--]=s[i--];</span><br><span class="line">            &#125;           </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -277,220 +193,19 @@
 		</ul>
 	</div>
 
-      
+          
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/04/27/%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-二维数组中的查找" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+    </div></section>
+  
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/04/27/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE/">二维数组中的查找</a>
-    </h1>
-  
-
-        
-        <a href="/2021/04/27/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE/" class="archive-article-date">
-  	<time datetime="2021-04-27T05:02:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="剑指-Offer-04-二维数组中的查找"><a href="#剑指-Offer-04-二维数组中的查找" class="headerlink" title="剑指 Offer 04.二维数组中的查找"></a>剑指 Offer 04.二维数组中的查找</h1><p>题目：<br><img src="/assets/jzoffer_img/jzo_04.png" alt="jzo_04题目"></p>
-<h4 id="我的题解："><a href="#我的题解：" class="headerlink" title="我的题解："></a>我的题解：</h4><p>时间复杂度O(mlogn),空间复杂度O(1);<br>思想：遍历每行首尾元素先找出查找元素可能存在的行，对该行内部进行二分搜索。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">findNumberIn2DArray</span><span class="params">(vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt;&amp; matrix, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> low,high,mid;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;matrix.<span class="built_in">size</span>();i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(matrix[i].<span class="built_in">size</span>()==<span class="number">0</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">if</span>(matrix[i].<span class="built_in">front</span>()==target||matrix[i].<span class="built_in">back</span>()==target)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(matrix[i].<span class="built_in">front</span>()&lt;target&amp;&amp;matrix[i].<span class="built_in">back</span>()&gt;target)</span><br><span class="line">            &#123;</span><br><span class="line">                low=<span class="number">0</span>;</span><br><span class="line">                high=matrix[i].<span class="built_in">size</span>()<span class="number">-1</span>;</span><br><span class="line">                <span class="keyword">while</span>(low&lt;=high)</span><br><span class="line">                &#123;</span><br><span class="line">                    mid=(low+high)/<span class="number">2</span>;</span><br><span class="line">                    <span class="keyword">if</span>(matrix[i][mid]==target)</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">if</span>(matrix[i][mid]&lt;target)</span><br><span class="line">                    &#123;</span><br><span class="line">                        low=mid+<span class="number">1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                    &#123;</span><br><span class="line">                        high=mid<span class="number">-1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;          </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<br>
-
-<h4 id="官方最优解"><a href="#官方最优解" class="headerlink" title="官方最优解:"></a>官方最优解:</h4><p>时间复杂度O(n+m),空间复杂度O(1);<br>思想：将二维数组逆时针旋转45°，由于每行每列有序，故将其看作一颗<font size=5>二叉搜索树</font>，即从二维数组右上角开始搜索，若tag小于该位置元素则将i–，若tag大于该位置元素将j++。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">findNumberIn2DArray</span><span class="params">(vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt;&amp; matrix, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m=matrix.<span class="built_in">size</span>()<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span>(m==<span class="number">-1</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">int</span> n=matrix[<span class="number">0</span>].<span class="built_in">size</span>()<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">-1</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">int</span> i=<span class="number">0</span>,j=n;</span><br><span class="line">        <span class="keyword">while</span>(i&lt;=m&amp;&amp;j&gt;=<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(matrix[i][j]==target)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(target&lt;matrix[i][j])</span><br><span class="line">                j--;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>时间复杂度明显比暴力解小，但提交运行时间居然比暴力解还要慢有点离谱。。。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">剑指 Offer</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数组</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">双指针</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/04/27/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-数组中的重复数字" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/04/24/%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E6%95%B0%E5%AD%97/">数组中的重复数字</a>
-    </h1>
-  
-
-        
-        <a href="/2021/04/24/%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E6%95%B0%E5%AD%97/" class="archive-article-date">
-  	<time datetime="2021-04-24T08:45:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="剑指-Offer-03-数组中的重复数字"><a href="#剑指-Offer-03-数组中的重复数字" class="headerlink" title="剑指 Offer 03.数组中的重复数字"></a>剑指 Offer 03.数组中的重复数字</h1><h4 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h4><p><img src="/assets/jzoffer_img/jzo_03.png" alt="jzo_03题目"><br>难度：easy</p>
-<h4 id="我的解析"><a href="#我的解析" class="headerlink" title="我的解析"></a>我的解析</h4><p>时间复杂度O(n),空间复杂度O(n)；<br>思想：采用<font face="黑体" size=5>map&lt;元素值，出现次数&gt; </font>记录每个元素出现的个数，最后通过遍历哈希表得到重复的元素。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findRepeatNumber</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        map&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; mym;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.<span class="built_in">size</span>();i++)</span><br><span class="line">        &#123;</span><br><span class="line">            mym[nums[i]]++;</span><br><span class="line">        &#125;</span><br><span class="line">        map&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;::iterator iter;</span><br><span class="line">        <span class="keyword">int</span> flag=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(iter=mym.<span class="built_in">begin</span>();iter!=mym.<span class="built_in">end</span>();iter++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(iter-&gt;second&gt;<span class="number">1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> iter-&gt;first;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<br>
-
-<h4 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解"></a>官方题解</h4><p>时间复杂度O(n)，空间复杂度O(n);<br>上述版本优化方案，在一次遍历中得到结果。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findRepeatNumber</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        map&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; mym;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.<span class="built_in">size</span>();i++)<span class="comment">//在该遍历中只要检测到当前的元素超过一次就可以返回</span></span><br><span class="line">        &#123;</span><br><span class="line">            mym[nums[i]]++;</span><br><span class="line">            <span class="keyword">if</span>(mym[nums[i]]&gt;<span class="number">1</span>)</span><br><span class="line">              <span class="keyword">return</span> nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h4 id="官方最优解"><a href="#官方最优解" class="headerlink" title="官方最优解"></a>官方最优解</h4><p>时间复杂度O(n),空间复杂度O(1);<br>思想：题目限定条件中所有的数字都在0~n-1 的范围内，对传入数组进行遍历，将元素值为i的元素与第i个位置上的元素互换，若要交换的元素和第i个位置上的元素相等时，则判定该元素重复。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findRepeatNumber</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.<span class="built_in">size</span>();i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(nums[i]!=i)<span class="comment">//当num[i]的值不在第num[i]个位置的时候要继续交换</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i]==nums[nums[i]])</span><br><span class="line">                &#123;</span><br><span class="line">                <span class="keyword">return</span> nums[i];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="built_in">swap</span>(nums[i],nums[nums[i]]);</span><br><span class="line">            &#125;            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">剑指 Offer</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数组</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">哈希表</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/04/24/%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E6%95%B0%E5%AD%97/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
 
 
           </div>
@@ -512,10 +227,10 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
