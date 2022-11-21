@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="fuyao">
+    
+    <title>
+        
+            面向对象-java |
+        
+        Recording
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Recording Everything."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.0.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Recording
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                CATEGORIES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                TAGS
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                ABOUT
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">CATEGORIES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">TAGS</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">ABOUT</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">面向对象-java</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">fuyao</span>
+                        
+                            <span class="author-label">Lv4</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-04-18 22:37:09</span>
+        <span class="mobile">2022-04-18 22:37</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/java/">java</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">面向对象</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h1><p>面向对象方法三个基本特征: <strong>封装</strong> , <strong>继承</strong> , <strong>多态</strong></p>
+<h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><h3 id="访问控制符"><a href="#访问控制符" class="headerlink" title="访问控制符"></a>访问控制符</h3><p><strong>private</strong> ：只能在当前类的内部被使用</p>
+<p><strong>protected</strong> ：可以被当前类的内部使用，也可以被不同包内的子类使用 </p>
+<p><strong>public</strong> ：可以被所有外部类所使用</p>
+<p><strong>default</strong> ：之恩那个被相同包内的类访问</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Fuyaocc/blog_source@master/images/visitcontroll.56dcq4rs86k0.webp" alt="访问控制级别"></p>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><ul>
+<li>若一个类未显式指定这个类的直接父类，则这个类默认扩展 java.lang.Object类，Object类是所有类的基类。</li>
+<li>重写：子类重写父类的方法，<em><strong>两同两小一大</strong></em> 原则：方法名和形参列表相同，返回值类型比父类方法的相等或更小，子类方法的访问权限比父类方法的更大或相等。</li>
+<li>若父类中有private修饰的方法，子类访问不到所以即便有相同函数名的函数也不是重写</li>
+<li>系统会为子类从父类继承的所有实例变量分配内存。</li>
+<li>父类构造器总会在子类构造器之前执行，子类若没super调用父类构造器，也没this调用，系统在执行子类构造器之前会隐式调用父类的无参构造器。</li>
+</ul>
+<h3 id="super"><a href="#super" class="headerlink" title="super"></a>super</h3><ul>
+<li>如果需要在子类方法中调用父类被重写的实例方法，则可使用 super 限定来调用父类被重写的实例。比如 <code>super.function()</code></li>
+<li>子类有父类的同名变量，也可使用 <strong>super</strong> 调用</li>
+<li>子类可通过 <strong>super</strong> 调用父类的构造器</li>
+</ul>
+<h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><p>Java 引用变量有两个类型，一个是编译时类型，一个是运行时类型。编译时类型由声明该变量时使用的类型决定，运行时类型由实际赋给该变量的对象决定，如果编译时类型和运行时类型不一致，就可能出现所谓的多态。</p>
+<p>比如： <code>father obj=new child();</code> obj对象的编译时类型是father，运行时类型是child类型。<br>obj可以调用父类的方法并且若子类重写父类的方法，则调用的方法呈现出子类方法的行为特征 _(即类似于父类方法变成了子类的方法)_，但obj对象不能调用子类的方法。</p>
+<ul>
+<li>引用变量的强制类型转换只能发生在具有继承关系的两个类之间。</li>
+</ul>
+<h3 id="动态绑定"><a href="#动态绑定" class="headerlink" title="动态绑定"></a>动态绑定</h3><ul>
+<li>当调用对象方法的时候， <strong>该方法和该对象的内存地址也就是运行时类型</strong> 绑定</li>
+<li>当调用对象属性时候，没有动态绑定，哪里声明哪里使用</li>
+</ul>
+<h3 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h3><ul>
+<li><p>instanceof运算符可以判断引用类型强制类型转换是否成功。</p>
+</li>
+<li><p>所有类都是引用类型</p>
+</li>
+</ul>
+<h2 id="类三种成员-四种"><a href="#类三种成员-四种" class="headerlink" title="类三种成员(四种)"></a>类三种成员(四种)</h2><h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><ul>
+<li>方法不能独立定义，必须在类内部定义</li>
+<li>方法要么属于该类本身，要么属于该类的一个对象</li>
+<li>执行方法必须使用类或者其对象来调用，不能独立执行</li>
+<li>重载：方法名相同，形参列表不相同</li>
+</ul>
+<h4 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h4><p>只有 <strong>值传递</strong> ：将实际参数的副本传入方法内<br>传入的是引用类型会将该引用类型的值即 <strong>堆内地址</strong> 复制一份给局部变量，也是值传递</p>
+<h3 id="成员变量和局部变量"><a href="#成员变量和局部变量" class="headerlink" title="成员变量和局部变量"></a>成员变量和局部变量</h3><h4 id="成员变量初始化和内存中的机制"><a href="#成员变量初始化和内存中的机制" class="headerlink" title="成员变量初始化和内存中的机制"></a>成员变量初始化和内存中的机制</h4><ul>
+<li>创建一个类的对象时，若是第一次使用该类的时候，系统会先加载这个类，并且初始化，为其静态成员变量分配内存，并指定默认初始值，类不保存非静态成员变量。</li>
+<li>创建对象时，只会给非静态成员变量分配内存</li>
+<li>成员变量都保存在堆内存中</li>
+</ul>
+<h4 id="局部变量初始化和内存中的机制"><a href="#局部变量初始化和内存中的机制" class="headerlink" title="局部变量初始化和内存中的机制"></a>局部变量初始化和内存中的机制</h4><ul>
+<li>局部变量必须经过显式初始化</li>
+<li>局部变量保存在方法的栈内存中，无需系统垃圾回收，随着方法或代码块的运行结束而结束</li>
+</ul>
+<h3 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h3><ul>
+<li>构造器在创建对象的时候执行初始化，无自定义的构造器是会有默认构造器</li>
+</ul>
+<h3 id="初始化块"><a href="#初始化块" class="headerlink" title="初始化块"></a>初始化块</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[修饰符]{</span><br><span class="line">    <span class="comment">//初始化块可执行diamagnetic</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<ul>
+<li>初始化块的修饰符只能是static</li>
+<li>初始化块的执行顺序和其在代码的的位置顺序有关</li>
+<li>初始化块总在构造器之前执行</li>
+<li>静态初始块总比普通初始块先执行<br>初始化块在编制结束之后会被“还原”到每个构造器中，并且位于构造器所有代码的前面。</li>
+</ul>
+<h2 id="x3D-x3D-和-equal-方法"><a href="#x3D-x3D-和-equal-方法" class="headerlink" title="== 和 equal 方法"></a><strong>==</strong> 和 <strong>equal</strong> 方法</h2><ul>
+<li><strong>==</strong> 和 <strong>equal</strong> 方法：当两个变量为数值类型的时候且值相等时 <strong>==</strong> 返回true，当两个变量为引用类型的时候,只有当两个变量指向同一个对象时 <strong>==</strong> 才返回true， <strong>equal</strong> 方法与 <strong>==</strong> 没有区别。</li>
+<li>JVM常量池：专门用于管理在编译时被确定并被保存在已编译的class文件中的一些数据 它包括了关于类、方法、接口中的常量，还包括字符串常量。</li>
+<li>JVM常量池保证相同的字符串直接量只有 <strong>1个</strong> ，不会产生多个副本</li>
+</ul>
+<h2 id="static关键字"><a href="#static关键字" class="headerlink" title="static关键字"></a>static关键字</h2><ul>
+<li><strong>static</strong> 修饰的成员不能访问没有 <strong>static</strong> 修饰的成员，即 <em><strong>静态成员不能直接访问非静态成员</strong></em></li>
+<li><strong>static</strong> 修饰的成员表明它属于这个类本身，而不属于该类的单个实例，不使用 <strong>static</strong> 修饰的普通方法、成员变变量则属于该类的单个实例，而不属于该类。</li>
+<li><strong>static</strong> 修饰的方法和成员变量，既可通过类来调用，也可通过实例来调用 <em><strong>(不建议使用对象来调用静态成员)</strong></em> ,没有使用 <strong>static</strong> 修饰的成员变量和方法都必须使用对象来调用。</li>
+<li><strong>static</strong> 修饰的方法中不能使用 <strong>this</strong> 引用</li>
+</ul>
+<h2 id="final修饰符"><a href="#final修饰符" class="headerlink" title="final修饰符"></a>final修饰符</h2><p>final修饰的类、方法和变量不可改变</p>
+<h3 id="final成员变量"><a href="#final成员变量" class="headerlink" title="final成员变量"></a>final成员变量</h3><ul>
+<li>final修饰的成员变量必须有程序员显式地指定初始值</li>
+<li>final修饰的类变量必须在静态初始化块、声明该变量时二者中选一个指定初始值</li>
+<li>final修饰的实例变量把必须在非静态初始化块、声明该变量、构造器三者中的一个内指定初始值</li>
+</ul>
+<h3 id="final局部变量"><a href="#final局部变量" class="headerlink" title="final局部变量"></a>final局部变量</h3><ul>
+<li>系统不会对局部变量初始化，需自己显式初始化。所以final 修饰局部变量时 既可以在定义时指定默认值，也可以不指定默认。</li>
+</ul>
+<h3 id="final修饰引用变量"><a href="#final修饰引用变量" class="headerlink" title="final修饰引用变量"></a>final修饰引用变量</h3><ul>
+<li>final修饰引用变量时候，只保证这个引用类型变量所引用的地址不会改变，即引用同一个对象，但这个对象内的成员是可以发生改变的。</li>
+</ul>
+<h3 id="final修饰方法"><a href="#final修饰方法" class="headerlink" title="final修饰方法"></a>final修饰方法</h3><ul>
+<li>final修饰的方法不可以被重写，但是可以被重载。</li>
+</ul>
+<h3 id="final修饰类"><a href="#final修饰类" class="headerlink" title="final修饰类"></a>final修饰类</h3><ul>
+<li>final修饰的类不能有子类。</li>
+</ul>
+<h2 id="abstract抽象类、抽象方法"><a href="#abstract抽象类、抽象方法" class="headerlink" title="abstract抽象类、抽象方法"></a>abstract抽象类、抽象方法</h2><ul>
+<li>抽象类体现了 <strong>模板模式</strong> 这一个设计模式。</li>
+<li>有抽象方法的类是抽象类，抽象类不一定有抽象方法。</li>
+<li>抽象类可以有普通方法、抽象方法、成员变量、初始化块构造器等。</li>
+<li>抽象方法不能有方法体，抽象类不能被实例化。</li>
+<li>子类继承抽象类必须实现抽象类的所有抽象方法。</li>
+<li><strong>abstract</strong> 和 <strong>static</strong> 不能同时修饰某个方法，但可以同时修饰内部类。</li>
+</ul>
+<h2 id="interface接口"><a href="#interface接口" class="headerlink" title="interface接口"></a>interface接口</h2><p>接口是特殊的抽象类</p>
+<ul>
+<li>接口里不包含构造器和初始化块定义。</li>
+<li>接口里可以包含成员变量(只能是静态常量)、方法(只能是抽象实例方法、静态方法、默认方法或私有方法)、静态内部类(包括内部接口、枚举)定义</li>
+<li>接口支持多继承</li>
+</ul>
+<h2 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h2><h3 id="非静态内部类"><a href="#非静态内部类" class="headerlink" title="非静态内部类"></a>非静态内部类</h3><ul>
+<li>非静态内部类内不允许定义静态成员</li>
+<li>非静态内部类可以直接访问外部类的所有变量和方法</li>
+<li>外部类不能直接访问非静态内部类的成员变量和方法,外部类必须创建非静态内部类的实例访问其实例成员。</li>
+<li>外部类静态成员不能直接使用非静态内部类</li>
+</ul>
+<p><em>外部类以外的地方创建非静态内部类实例必须使用外部类实例和new 来调用非静态内部类的构造器。</em></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Out</span>{</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">In</span>{</span><br><span class="line">        ...</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span>{</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>{</span><br><span class="line">        Out.In in=<span class="keyword">new</span> <span class="title class_">Out</span>().<span class="keyword">new</span> <span class="title class_">In</span>();</span><br><span class="line">        <span class="comment">//等价于下面</span></span><br><span class="line">        <span class="comment">//Out.In in;</span></span><br><span class="line">        <span class="comment">//Out out=new Out();</span></span><br><span class="line">        <span class="comment">//in=out.new In();</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<h3 id="静态内部类"><a href="#静态内部类" class="headerlink" title="静态内部类"></a>静态内部类</h3><ul>
+<li>静态内部类属于外部类本身</li>
+<li>静态内部类不能访问外部类的实例成员(非静态成员)，只能访问外部类的类成员(即静态成员)。</li>
+<li>外部类不能直接访问静态内部类成员，可以通过静态内部类的类名或者静态内部类的对象作为调用者来访问。</li>
+</ul>
+<h2 id="对象与垃圾回收"><a href="#对象与垃圾回收" class="headerlink" title="对象与垃圾回收"></a>对象与垃圾回收</h2><p>jvm垃圾回收由系统自动执行，有不确定性。</p>
+<h3 id="对象在内存中的状态"><a href="#对象在内存中的状态" class="headerlink" title="对象在内存中的状态"></a>对象在内存中的状态</h3><p>在实例化一个类的时候，类的对象保存在堆(heap)中，栈中保存对该对象的引用，指向对象在堆内中的地址。<br>对象在内存中的三种状态: <strong>可达状态</strong> , <strong>可恢复状态</strong> , <strong>不可达状态</strong><br><img src="https://cdn.jsdelivr.net/gh/Fuyaocc/blog_source@master/images/objectStatusTrans.5p1v1zq8qes0.webp" alt="对象状态转换"></p>
+<h3 id="强制垃圾回收"><a href="#强制垃圾回收" class="headerlink" title="强制垃圾回收"></a>强制垃圾回收</h3><ul>
+<li>程序可以强制 <strong>(通知建议)</strong> 系统进行垃圾回收，但系统是否进行回收不确定。</li>
+</ul>
+<h3 id="finalize-方法"><a href="#finalize-方法" class="headerlink" title="finalize 方法"></a>finalize 方法</h3><ul>
+<li>在垃圾回收机制回收任何对象之前，总会先调用它的 finalize()方法，该方法可能使该对象重新<br>复活(让一个引用变量重新引用该对象) ，从而导致垃圾回收机制取消回收。</li>
+<li>finalize不一定会执行</li>
+<li>不需要程序员指定，系统自动调用</li>
+</ul>
+<h3 id="引用的类型"><a href="#引用的类型" class="headerlink" title="引用的类型"></a>引用的类型</h3><ul>
+<li>硬引用：把对象直接赋值个一个引用变量。</li>
+<li>软引用：使用SoftReference，在内存够时不会被垃圾回收，内存不够时候可能会被回收</li>
+<li>弱引用：使用WeakRederence，系统垃圾回收机制运行时候，总会被回收。</li>
+<li>虚引用：类似于没引用，需和引用队列联合使用，作用是跟踪对象被垃圾回收的状态</li>
+</ul>
+<h2 id="修饰符汇总"><a href="#修饰符汇总" class="headerlink" title="修饰符汇总"></a>修饰符汇总</h2><p><img src="https://cdn.jsdelivr.net/gh/Fuyaocc/blog_source@master/images/xiushifu.k4m29mcct5s.webp" alt="修饰符适用"></p>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">#面向对象</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/04/19/%E7%BA%BF%E6%AE%B5%E6%A0%91%E6%A8%A1%E6%9D%BF/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">线段树模板</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/04/18/%E6%91%A9%E5%B0%94%E6%8A%95%E7%A5%A8/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">摩尔投票</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">fuyao</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1"><span class="nav-text">面向对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%81%E8%A3%85"><span class="nav-text">封装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E7%AC%A6"><span class="nav-text">访问控制符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF"><span class="nav-text">继承</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#super"><span class="nav-text">super</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E6%80%81"><span class="nav-text">多态</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A"><span class="nav-text">动态绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#instanceof"><span class="nav-text">instanceof</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E4%B8%89%E7%A7%8D%E6%88%90%E5%91%98-%E5%9B%9B%E7%A7%8D"><span class="nav-text">类三种成员(四种)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92"><span class="nav-text">参数传递</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%92%8C%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F"><span class="nav-text">成员变量和局部变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96%E5%92%8C%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E6%9C%BA%E5%88%B6"><span class="nav-text">成员变量初始化和内存中的机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96%E5%92%8C%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E6%9C%BA%E5%88%B6"><span class="nav-text">局部变量初始化和内存中的机制</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E5%99%A8"><span class="nav-text">构造器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%9D%97"><span class="nav-text">初始化块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#x3D-x3D-%E5%92%8C-equal-%E6%96%B9%E6%B3%95"><span class="nav-text">&#x3D;&#x3D; 和 equal 方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#static%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-text">static关键字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#final%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="nav-text">final修饰符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#final%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F"><span class="nav-text">final成员变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#final%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F"><span class="nav-text">final局部变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#final%E4%BF%AE%E9%A5%B0%E5%BC%95%E7%94%A8%E5%8F%98%E9%87%8F"><span class="nav-text">final修饰引用变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#final%E4%BF%AE%E9%A5%B0%E6%96%B9%E6%B3%95"><span class="nav-text">final修饰方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#final%E4%BF%AE%E9%A5%B0%E7%B1%BB"><span class="nav-text">final修饰类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#abstract%E6%8A%BD%E8%B1%A1%E7%B1%BB%E3%80%81%E6%8A%BD%E8%B1%A1%E6%96%B9%E6%B3%95"><span class="nav-text">abstract抽象类、抽象方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#interface%E6%8E%A5%E5%8F%A3"><span class="nav-text">interface接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E7%B1%BB"><span class="nav-text">内部类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E9%9D%99%E6%80%81%E5%86%85%E9%83%A8%E7%B1%BB"><span class="nav-text">非静态内部类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E5%86%85%E9%83%A8%E7%B1%BB"><span class="nav-text">静态内部类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6"><span class="nav-text">对象与垃圾回收</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E7%8A%B6%E6%80%81"><span class="nav-text">对象在内存中的状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%BA%E5%88%B6%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6"><span class="nav-text">强制垃圾回收</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#finalize-%E6%96%B9%E6%B3%95"><span class="nav-text">finalize 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="nav-text">引用的类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E9%A5%B0%E7%AC%A6%E6%B1%87%E6%80%BB"><span class="nav-text">修饰符汇总</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/code-copy.js"></script>
+
+
+
+
+<div class="post-scripts">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/toc.js"></script>
+    
+</div>
+
+
+
+</body>
+</html>

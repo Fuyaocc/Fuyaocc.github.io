@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="fuyao">
+    
+    <title>
+        
+            Hive DDL+DML |
+        
+        Recording
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Recording Everything."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.0.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Recording
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                CATEGORIES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                TAGS
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                ABOUT
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">CATEGORIES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">TAGS</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">ABOUT</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Hive DDL+DML</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">fuyao</span>
+                        
+                            <span class="author-label">Lv4</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-03-18 13:25:56</span>
+        <span class="mobile">2022-03-18 13:25</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/hive/">hive</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="Hive-DDL-DML"><a href="#Hive-DDL-DML" class="headerlink" title="Hive DDL+DML"></a>Hive DDL+DML</h1><p>hive beeline jdbc方式连接 <span id="more"></span></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">beeline -u jdbc:hive2://hadoop101:10000 -n xky</span><br></pre></td></tr></table></figure>
+<h3 id="库的DDL"><a href="#库的DDL" class="headerlink" title="库的DDL"></a>库的DDL</h3><h4 id="建库"><a href="#建库" class="headerlink" title="建库"></a>建库</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> [REMOTE] (DATABASE<span class="operator">|</span>SCHEMA) [IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span>] database_name <span class="comment">--建库</span></span><br><span class="line">  [COMMENT database_comment] <span class="comment">--对数据库的描述</span></span><br><span class="line">  [LOCATION hdfs_path] <span class="comment">--指定库在hdfs中的位置，默认为hive-site.xml配置的路径</span></span><br><span class="line">  [MANAGEDLOCATION hdfs_path] <span class="comment">--指定托管表的hdfs目录</span></span><br><span class="line">  [<span class="keyword">WITH</span> DBPROPERTIES (property_name<span class="operator">=</span>property_value, ...)];<span class="comment">--指定库的属性</span></span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> database if <span class="keyword">not</span> <span class="keyword">exists</span> mydb;</span><br><span class="line">comment <span class="string">'my first db'</span></span><br><span class="line"><span class="keyword">with</span> dbproperties(<span class="string">'dbname'</span><span class="operator">=</span><span class="string">'mydb'</span>,<span class="string">'createtime'</span><span class="operator">=</span><span class="string">'2022-03-17'</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="删库"><a href="#删库" class="headerlink" title="删库"></a>删库</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> (DATABASE<span class="operator">|</span>SCHEMA) [IF <span class="keyword">EXISTS</span>] database_name [RESTRICT<span class="operator">|</span>CASCADE];<span class="comment">--加上cascade强制删除有表的数据库</span></span><br></pre></td></tr></table></figure>
+<p>例:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> database if <span class="keyword">exists</span> mydb; <span class="comment">--只能删除无表的的数据库</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="查询数据库"><a href="#查询数据库" class="headerlink" title="查询数据库"></a>查询数据库</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> databases;<span class="comment">--查看所有数据库</span></span><br><span class="line"><span class="keyword">show</span> databases <span class="keyword">like</span> <span class="string">'my*'</span>; <span class="comment">--模糊查询</span></span><br><span class="line"><span class="keyword">desc</span> database extended mydb;<span class="comment">--显示某个数据库的详细信息</span></span><br><span class="line">use mydb1;<span class="comment">--切换数据库</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ALTER</span> (DATABASE<span class="operator">|</span>SCHEMA) database_name <span class="keyword">SET</span> DBPROPERTIES (property_name<span class="operator">=</span>property_value, ...);   <span class="comment">--修改库的元数据信息</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="表的DDL"><a href="#表的DDL" class="headerlink" title="表的DDL"></a>表的DDL</h3><h4 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> [TEMPORARY] [<span class="keyword">EXTERNAL</span>] <span class="keyword">TABLE</span> [IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span>] [db_name.]table_name    <span class="comment">-- 指定表名、EXTERNAL表示创建外部表</span></span><br><span class="line">  [(col_name data_type [column_constraint_specification] , ... )]<span class="comment">--指定列名、列类型...</span></span><br><span class="line">  [COMMENT table_comment] <span class="comment">--指定表的描述信息</span></span><br><span class="line">  [PARTITIONED <span class="keyword">BY</span> (col_name data_type [COMMENT col_comment], ...)]<span class="comment">--指定分区列名，列类型，列描述信息</span></span><br><span class="line">  [CLUSTERED <span class="keyword">BY</span> (col_name, col_name, ...) [SORTED <span class="keyword">BY</span> (col_name [<span class="keyword">ASC</span><span class="operator">|</span><span class="keyword">DESC</span>], ...)] <span class="keyword">INTO</span> num_buckets BUCKETS]<span class="comment">----指定分桶列名和排序列</span></span><br><span class="line">   [<span class="type">ROW</span> FORMAT delimited fields terminated <span class="keyword">by</span> <span class="string">''</span>] <span class="comment">--指定行中每个元素的分隔符</span></span><br><span class="line">   [collection items terminated <span class="keyword">by</span> <span class="string">''</span>]<span class="comment">--指定集合元素的分隔符</span></span><br><span class="line">   [map keys terminated <span class="keyword">by</span> <span class="string">''</span>]<span class="comment">--指定map的kv分隔符</span></span><br><span class="line">   [lines terminated <span class="keyword">by</span> <span class="string">''</span>]<span class="comment">--指定行分隔符</span></span><br><span class="line">   [STORED <span class="keyword">AS</span> file_format] <span class="comment">--指定表数据的存储格式（textfile,orc,parquet）</span></span><br><span class="line">  [LOCATION hdfs_path] <span class="comment">--指定表对应的hdfs的目录</span></span><br><span class="line">  [TBLPROPERTIES (property_name<span class="operator">=</span>property_value, ...)]   <span class="comment">-- 指定表的属性信息</span></span><br><span class="line">  [<span class="keyword">AS</span> select_statement];</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> [IF <span class="keyword">EXISTS</span>] table_name [PURGE];</span><br></pre></td></tr></table></figure>
+
+<h4 id="修改表"><a href="#修改表" class="headerlink" title="修改表"></a>修改表</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name RENAME <span class="keyword">TO</span> new_table_name;<span class="comment">--改表名</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="DML"><a href="#DML" class="headerlink" title="DML"></a>DML</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LOAD DATA [<span class="keyword">LOCAL</span>] INPATH <span class="string">'filepath'</span> [OVERWRITE] <span class="keyword">INTO</span> <span class="keyword">TABLE</span> tablename [<span class="keyword">PARTITION</span> (partcol1<span class="operator">=</span>val1, partcol2<span class="operator">=</span>val2 ...)]</span><br><span class="line"><span class="comment">--local：表示从本地，不写表示从HDFS</span></span><br><span class="line"><span class="comment">--overwrite：覆盖</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--导入</span></span><br><span class="line">import <span class="keyword">table</span> db.name <span class="keyword">from</span> <span class="string">''</span></span><br><span class="line"><span class="comment">--导出</span></span><br><span class="line">export <span class="keyword">table</span> db.name <span class="keyword">to</span> <span class="string">''</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> [<span class="keyword">ALL</span> <span class="operator">|</span> <span class="keyword">DISTINCT</span>] select_expr, select_expr, ... <span class="comment">--查询表中哪些字段</span></span><br><span class="line">  <span class="keyword">FROM</span> table_reference                                <span class="comment">--从哪个表查</span></span><br><span class="line">  [<span class="keyword">WHERE</span> where_condition]                             <span class="comment">--where过滤</span></span><br><span class="line">  [<span class="keyword">GROUP</span> <span class="keyword">BY</span> col_list]                                 <span class="comment">--分组  </span></span><br><span class="line">  [<span class="keyword">ORDER</span> <span class="keyword">BY</span> col_list]                                 <span class="comment">--全局排序  </span></span><br><span class="line">  [CLUSTER <span class="keyword">BY</span> col_list                                <span class="comment">--分区排序</span></span><br><span class="line">    <span class="operator">|</span> [DISTRIBUTE <span class="keyword">BY</span> col_list] [SORT <span class="keyword">BY</span> col_list]     <span class="comment">--[分区]    [排序]</span></span><br><span class="line">  ]</span><br><span class="line"> [LIMIT [<span class="keyword">offset</span>,] <span class="keyword">rows</span>]                               <span class="comment">--限制返回的数据条数</span></span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/hive/">#hive</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/03/18/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">拓扑排序</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/03/03/LIS/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">LIS</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">fuyao</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hive-DDL-DML"><span class="nav-text">Hive DDL+DML</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%93%E7%9A%84DDL"><span class="nav-text">库的DDL</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BB%BA%E5%BA%93"><span class="nav-text">建库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A0%E5%BA%93"><span class="nav-text">删库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">查询数据库</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E7%9A%84DDL"><span class="nav-text">表的DDL</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%A1%A8"><span class="nav-text">创建表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E8%A1%A8"><span class="nav-text">删除表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E8%A1%A8"><span class="nav-text">修改表</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DML"><span class="nav-text">DML</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2"><span class="nav-text">查询</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/code-copy.js"></script>
+
+
+
+
+<div class="post-scripts">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/toc.js"></script>
+    
+</div>
+
+
+
+</body>
+</html>

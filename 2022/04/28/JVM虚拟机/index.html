@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="fuyao">
+    
+    <title>
+        
+            JVM虚拟机 |
+        
+        Recording
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Recording Everything."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.0.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Recording
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                CATEGORIES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                TAGS
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                ABOUT
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">CATEGORIES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">TAGS</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">ABOUT</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">JVM虚拟机</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">fuyao</span>
+                        
+                            <span class="author-label">Lv4</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-04-28 20:34:02</span>
+        <span class="mobile">2022-04-28 20:34</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/java/">java</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/JVM%E8%99%9A%E6%8B%9F%E6%9C%BA/">JVM虚拟机</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="JVM虚拟机-内存与垃圾回收"><a href="#JVM虚拟机-内存与垃圾回收" class="headerlink" title="JVM虚拟机-内存与垃圾回收"></a>JVM虚拟机-内存与垃圾回收</h1><p>一次编译，到处运行</p>
+<h2 id="JVM和Java的体系结构"><a href="#JVM和Java的体系结构" class="headerlink" title="JVM和Java的体系结构"></a>JVM和Java的体系结构</h2><h3 id="JVM架构模型"><a href="#JVM架构模型" class="headerlink" title="JVM架构模型"></a>JVM架构模型</h3><p>JVM整体结构简图<br><img src="https://cdn.jsdelivr.net/gh/Fuyaocc/blog_source@master/images/jvmArchitecture.4llm8qp6l600.webp" alt="JVM结构"></p>
+<ul>
+<li>java编译器输入的指令流基本上是基于 <strong>栈的指令集架构</strong></li>
+<li>栈的指令集架构特点是依靠软件，可移植性比较好(跨平台性)、指令集小、指令多，执行性能比寄存器差</li>
+</ul>
+<h3 id="JVM生命周期"><a href="#JVM生命周期" class="headerlink" title="JVM生命周期"></a>JVM生命周期</h3><p><strong>虚拟机的启动</strong><br>JVM的启动是通过 <strong>引导类加载器</strong> 创建一个初始类来完成的，该类由JVM的具体实现指定。</p>
+<p><strong>虚拟机的执行</strong></p>
+<ul>
+<li>程序执行时JVM进行，程序结束的时候JVM结束</li>
+<li>执行一个Java程序，其实是执行一个叫Java虚拟机的进程</li>
+</ul>
+<p><strong>虚拟机的退出</strong></p>
+<ul>
+<li>程序正常结束</li>
+<li>程序在执行过程中遇到异常或错误而异常终止</li>
+<li>由于OS出现错误导致JVM进程终止</li>
+<li>某线程调用Runtime或System类的exit方法，或Runtime类的halt方法，并且Java安全管理器也允许这次的exit或halt操作</li>
+</ul>
+<h3 id="虚拟机类型"><a href="#虚拟机类型" class="headerlink" title="虚拟机类型"></a>虚拟机类型</h3><h4 id="HotSpot-VM-默认"><a href="#HotSpot-VM-默认" class="headerlink" title="HotSpot VM(默认)"></a>HotSpot VM(默认)</h4><ul>
+<li>HotSpot即热点代码探测技术</li>
+<li>通过程序计数器找到最具有编译价值的代码，出发即时编译或栈上的替换</li>
+<li>通过编译器和解释器的协同工作，在最优化的程序响应时间与最佳执行性能中取得平衡</li>
+</ul>
+<p><strong>JRockit VM</strong> 是世界上最快的JVM虚拟机<br><strong>J9 VM</strong></p>
+<h2 id="类加载子系统"><a href="#类加载子系统" class="headerlink" title="类加载子系统"></a>类加载子系统</h2><p><img src="https://cdn.jsdelivr.net/gh/Fuyaocc/blog_source@master/images/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%AD%90%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84.4nfl709370q0.webp" alt="ClassLoaderSubSystem"><br>类加载器子系统作用</p>
+<ul>
+<li>负责从文件系统或网络中加载Class文件，class文件开头有特定标识符</li>
+<li>ClassLoader只负责class文件的加载，执行由Execution Engine决定</li>
+<li>加载的类信息放在内存的方法区。方法区存放类信息、运行时常量信息，可能还包括字符串和数字常量(这部分常量信息是Class文件中常量池部分的内存映射)</li>
+</ul>
+<h3 id="类加载器ClassLoader角色"><a href="#类加载器ClassLoader角色" class="headerlink" title="类加载器ClassLoader角色"></a>类加载器ClassLoader角色</h3><ul>
+<li>ClassLoader将存于本地硬盘上的class文件加载到JVM中来称为元数据模板的运输工具</li>
+</ul>
+<p><strong>类的加载子系统简图</strong><br><img src="https://cdn.jsdelivr.net/gh/Fuyaocc/blog_source@master/images/%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E5%B9%BF%E4%B9%89.31rh3vgj41i0.webp" alt="classloader"></p>
+<p><strong>类的加载阶段</strong><br><img src="https://cdn.jsdelivr.net/gh/Fuyaocc/blog_source@master/images/classloader.5bvye77jlqo0.webp" alt="calssLoader"></p>
+<h3 id="类的加载过程描述"><a href="#类的加载过程描述" class="headerlink" title="类的加载过程描述"></a>类的加载过程描述</h3><h4 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h4><ul>
+<li>通过一个类的全限定名获取定义此类的二进制字节流</li>
+<li>将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构</li>
+<li>在内存中生成一个代表这个类的java.lang.Class对象，作为方法区这个类的各种数据的访问入口</li>
+</ul>
+<h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><p><strong>验证</strong></p>
+<ul>
+<li>目的是确保Class文件的字节流符合JVM的要求，保证被加载类的正确性，不会危害JVM</li>
+<li>主要由四种验证：文件格式严重、元数据严重、字节码验证、符号引用验证</li>
+</ul>
+<p><strong>准备</strong></p>
+<ul>
+<li>为类变量分配内存并且设置默认初值</li>
+<li>被final修饰的static变量不会被处理，final在编译的时候就会分配内存，准备阶段会显式的初始化</li>
+<li>不会为实例变量分配和初始化，类变量再方法区中，实例变量是会随对象一起分配在堆中</li>
+</ul>
+<p><strong>解析</strong></p>
+<ul>
+<li>将常量池的符号引用转换为直接引用的过程</li>
+<li>解析往往会伴随着JVM再执行完初始化之后再执行</li>
+<li>符号引用就是一组符号来描述所引用的目标，直接引用就是直接指向目标的指针、相对偏移量或者一个间接定位到目标的句柄。</li>
+<li>解析动作主要针对类或接口、字段、类方法、接口方法、方法类型等</li>
+</ul>
+<h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><ul>
+<li>初始化阶段就是执行类构造器方法 <code>&lt;clinit&gt;()</code> 方法</li>
+<li><code>&lt;clinit&gt;()</code> 方法是由javac编译器自动收集类中的所有类变量的赋值动作和静态代码块中的语句合并而来</li>
+<li>构造器方法中的指令按语句在源文件中川线的顺序执行。</li>
+<li><code>&lt;clinit&gt;()</code> 不同于类的构造器 (构造其实虚拟机视角下的 <code>&lt;init&gt;()</code> )</li>
+<li>若该类具有父类，JVM会保证子类的 <code>&lt;clinit&gt;()</code> 执行前，父类的 <code>&lt;clinit&gt;()</code> 已经执行完毕。</li>
+<li>虚拟机必须保证一个类的 <code>&lt;clinit&gt;()</code> 方法在多线程下被同步加锁。</li>
+</ul>
+<h3 id="类加载器的分类"><a href="#类加载器的分类" class="headerlink" title="类加载器的分类"></a>类加载器的分类</h3><p>两种类型的类加载器，分别为 <strong>引导类加载器(bootstrap ClassLoader)</strong> 和 <strong>自定义类加载器(User-Defined ClassLoader)</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Fuyaocc/blog_source@master/images/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%E5%85%B3%E7%B3%BB.3glqo7ce0u80.webp" alt="classloader relationship"></p>
+<h4 id="引导类加载器"><a href="#引导类加载器" class="headerlink" title="引导类加载器"></a>引导类加载器</h4><ul>
+<li>用C/C++实现，嵌套在JVM内部，用于加载Java的核心库，用于提供JVM自身需要的类</li>
+<li>并不继承自java.lang.ClassLoader,没有父类加载器</li>
+<li>加载扩展类和应用程序类加载器，并指定为他们的父类加载器</li>
+<li>Bootstrap加载器只加载包名为java、javax、sun等开头的类</li>
+</ul>
+<h4 id="扩展类加载器Extension-ClassLoader"><a href="#扩展类加载器Extension-ClassLoader" class="headerlink" title="扩展类加载器Extension ClassLoader"></a>扩展类加载器Extension ClassLoader</h4><ul>
+<li>Java编写，由sun.msic.Launcher$ExtClassLoader实现，派生于ClassLoader抽象类。</li>
+<li>父类加载器为BootStrap加载器</li>
+<li>从java.ext.dirs系统属性所指定的目录下加载类库</li>
+</ul>
+<h4 id="应用程序加载器-系统类加载器，AppClassLoader"><a href="#应用程序加载器-系统类加载器，AppClassLoader" class="headerlink" title="应用程序加载器(系统类加载器，AppClassLoader)"></a>应用程序加载器(系统类加载器，AppClassLoader)</h4><ul>
+<li>java编写，由sun.msic.Launcher$AppClassLoader实现，派生于ClassLoader</li>
+<li>父类加载器为Extension加载器</li>
+<li>加载环境变量classpath或系统属性java.class.path指定路径下的类库</li>
+<li>该类加载器是程序中的默认的类加载器，通常Java应用的类都是它来加载的</li>
+</ul>
+<h4 id="自定义类加载器"><a href="#自定义类加载器" class="headerlink" title="自定义类加载器"></a>自定义类加载器</h4><p>间接或直接派生于抽象类ClassLoader的类加载器都划分为自定义类加载器。<br>隔离加载类、修改类加载的方式、扩展加载源、防止源码泄露等情况下需要自定义类加载器</p>
+<ul>
+<li>ClassLoader是一个抽象类，除了Bootstrap加载器，其他所有的类加载器都继承自ClassLoader类</li>
+</ul>
+<h3 id="双亲委派机制"><a href="#双亲委派机制" class="headerlink" title="双亲委派机制"></a>双亲委派机制</h3><p>JVM是按需加载class文件，加载的模式是双亲委派模式<br><strong>工作原理</strong></p>
+<ul>
+<li>一个类加载器收到一个加载类的请求，会将请求委托给父类加载器加载</li>
+<li>若父类加载器还有父类加载器则进一步向上委托，依次递归，直到最顶层父类加载器</li>
+<li>若父类加载器可以完成加载类，则成功返回，否则才子类加载器才会尝试去自己加载</li>
+</ul>
+<p>双亲委派机制图解：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Fuyaocc/blog_source@master/images/%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%9C%BA%E5%88%B6.4jrqu365qmw0.webp" alt="sqwpjz"></p>
+<p><strong>优点</strong></p>
+<ul>
+<li>防止重复加载</li>
+<li>保护程序安全，防止核心API被随意篡改</li>
+</ul>
+<p><strong>沙箱安全机制</strong></p>
+<ul>
+<li>在加载自定义核心API时，引导加载器会先加载jdk自带的文件，来保证对java核心源代码的保护。</li>
+</ul>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul>
+<li>两个类的包名和类名，并且加载这两个类的ClassLoader相同时，JVM认为两个类是同一个类</li>
+<li>JVM需知道一个类型是由启动加载器加载的还是用户加载器加载的。 <strong>如果由用户加载器加载，JVM会将类加载器的一个引用作为类型信息的保存在方法区。</strong> 当解析一个类型到另一个类型的引用的时候，JVM需保证这两个类型的类加载器是相同的。</li>
+</ul>
+<p><strong>java程序对类的主动使用</strong> 会导致类的初始化</p>
+<ul>
+<li>创建类的实例</li>
+<li>访问某个类或接口的静态变量，或对该静态变量赋值</li>
+<li>调用类的静态方法</li>
+<li>反射</li>
+<li>初始化一个类的子类</li>
+<li>JVM启动时被标明为启动类的类</li>
+<li>JDK 7开始提供的动态语言支持</li>
+</ul>
+<p>除了上述7种情况，其他使用Java类的方式都是被看作是对 <strong>类的被动调用</strong> ，类的被动调用不会导致类的初始化</p>
+<h2 id="运行时数据区概述及线程"><a href="#运行时数据区概述及线程" class="headerlink" title="运行时数据区概述及线程"></a>运行时数据区概述及线程</h2><p>程序运行时会使用到运行时数据区，数据区中有一个部分绑定虚拟机的生命周期，另外一些泽合线程生命周期绑定</p>
+<ul>
+<li>线程间共享的数据区(即进程所使用的)：堆、堆外空间(永久代或元空间、代码缓存)</li>
+<li>每个线程独有的数据区：程序计数器pc，JVM栈VMs，本地方法栈NMS<br><img src="https://cdn.jsdelivr.net/gh/Fuyaocc/blog_source@master/images/%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%BD%92%E5%B1%9E.12lqjfhw2l3k.webp" alt="runtimeDataArea"></li>
+</ul>
+<h3 id="程序计数器PC"><a href="#程序计数器PC" class="headerlink" title="程序计数器PC"></a>程序计数器PC</h3><p><strong>作用</strong></p>
+<ul>
+<li>PC用来存储指向下一条指令的地址，也就是要执行的指令代码。由执行引擎读取下一条指令。</li>
+<li>由于线程运行是并发运行的，CPU时间片轮转策略会不停切换线程，每个线程需要有自己的PC来记录中断位置。<br><strong>介绍</strong></li>
+<li>每个线程都有一个独有的PC，是线程私有的，生命周期与线程的生命周期相同。</li>
+<li>PC会存储当前方法指令的指令地址；若在执行的是 <code>native()</code>  方法，这是未指定值(undefined)</li>
+<li>程序的分支、跳转、循环、异常处理、线程恢复等操作都需要PC</li>
+<li>字节码解释器工作就是修改PC的值来选取下一条需要执行的字节码指令</li>
+<li>PC是唯一一个在JVM规范中没有规定任何OutOfMemoryError(OOM)情况的区域</li>
+</ul>
+<h3 id="虚拟机栈vms"><a href="#虚拟机栈vms" class="headerlink" title="虚拟机栈vms"></a>虚拟机栈vms</h3>
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/JVM%E8%99%9A%E6%8B%9F%E6%9C%BA/">#JVM虚拟机</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/04/30/Mysql%E6%95%B4%E7%90%86/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Mysql基础</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/04/26/%E5%88%86%E7%BB%84%E9%97%AE%E9%A2%98/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">分组问题</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">fuyao</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JVM%E8%99%9A%E6%8B%9F%E6%9C%BA-%E5%86%85%E5%AD%98%E4%B8%8E%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6"><span class="nav-text">JVM虚拟机-内存与垃圾回收</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM%E5%92%8CJava%E7%9A%84%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="nav-text">JVM和Java的体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JVM%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%9E%8B"><span class="nav-text">JVM架构模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JVM%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-text">JVM生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%9E%8B"><span class="nav-text">虚拟机类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HotSpot-VM-%E9%BB%98%E8%AE%A4"><span class="nav-text">HotSpot VM(默认)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%AD%90%E7%B3%BB%E7%BB%9F"><span class="nav-text">类加载子系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8ClassLoader%E8%A7%92%E8%89%B2"><span class="nav-text">类加载器ClassLoader角色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B%E6%8F%8F%E8%BF%B0"><span class="nav-text">类的加载过程描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%A0%E8%BD%BD"><span class="nav-text">加载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5"><span class="nav-text">链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-text">初始化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-text">类加载器的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%95%E5%AF%BC%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8"><span class="nav-text">引导类加载器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8Extension-ClassLoader"><span class="nav-text">扩展类加载器Extension ClassLoader</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%8A%A0%E8%BD%BD%E5%99%A8-%E7%B3%BB%E7%BB%9F%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%EF%BC%8CAppClassLoader"><span class="nav-text">应用程序加载器(系统类加载器，AppClassLoader)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8"><span class="nav-text">自定义类加载器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%9C%BA%E5%88%B6"><span class="nav-text">双亲委派机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E6%A6%82%E8%BF%B0%E5%8F%8A%E7%BA%BF%E7%A8%8B"><span class="nav-text">运行时数据区概述及线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8PC"><span class="nav-text">程序计数器PC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88vms"><span class="nav-text">虚拟机栈vms</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/code-copy.js"></script>
+
+
+
+
+<div class="post-scripts">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/toc.js"></script>
+    
+</div>
+
+
+
+</body>
+</html>
